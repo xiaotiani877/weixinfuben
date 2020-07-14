@@ -1,0 +1,12 @@
+<!--pages/homePage/homePage.wxml-->
+<!-- 页顶 -->
+<page-window></page-window>
+<!-- 页顶 -->
+
+<!-- Tab标签栏 -->
+<abel-bar bind:onItemTap="onItemTap" class="items_list" items="{{items_list}}"></abel-bar>
+<!-- Tab标签栏 -->
+
+<!-- 数据列表 -->
+<card testValue="{{testValue}}"></card>
+<!-- 数据列表 -->

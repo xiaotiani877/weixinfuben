@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class="container">
+  <view>
+    <view class="up">
+      <text class="up1">黑马</text>
+      <text class="up2">头条</text>
+    </view>
+    <text class="bar">技术热点的追求者</text>
+    <view>
+      <button bindtap="enter" class="down" size="mini">立即体验</button>
+    </view>
+  </view>
+</view>

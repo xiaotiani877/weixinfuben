@@ -1,0 +1,36 @@
+/**index.wxss**/
+
+page {
+  background-color: #f3f3f3
+}
+
+.container {
+  text-align: center;
+  padding: 140rpx 0
+}
+
+.up {
+  letter-spacing: 5rpx;
+}
+
+.up1, .up2 {
+  font-size: 45rpx;
+}
+
+.up2 {
+  color: #3c9bfa;
+}
+
+.bar {
+  display: inline-block;
+  color: #9c9c9d;
+  margin-top: 20rpx;
+}
+
+.down {
+  margin-top: 170%;
+  font-size: 35rpx;
+  color: #6bb0fa;
+  border-radius: 30px;
+  border: 1px solid #72b7fb;
+}

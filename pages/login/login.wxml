@@ -1,0 +1,52 @@
+<!--pages/login/login.wxml-->
+<view class="container">
+  <!-- pagebody -->
+  <!-- page上部分 -->
+  <view class="up">
+    <!-- 手机号box -->
+    <view class="icon-box">
+      <view class="icon-box-ctn-icon">
+        <mp-icon type="field" icon="cellphone" color="black" size="{{18}}"></mp-icon>
+      </view>
+      <view class="icon-box-ctn">
+        <view class="icon-box-ctn-input">
+          <input bindblur="postMoblie" type="text" placeholder-style="color:#d9d9d9;font-size:30rpx" placeholder="请输入手机号"></input>
+        </view>
+      </view>
+    </view>
+    <!-- 手机号box -->
+
+    <!-- 验证码box -->
+    <view class="icon-box">
+      <view class="icon-box-ctn-icon">
+        <mp-icon icon="lock" color="black" size="{{18}}"></mp-icon>
+      </view>
+      <view class="icon-box-ctn">
+        <view class="icon-box-ctn-input">
+          <input bindblur="postCode" password="true" type="text" placeholder-style="color:#d9d9d9;font-size:30rpx" placeholder="请输入验证码"></input>
+        </view>
+      </view>
+      <!-- 验证码按钮 -->
+      <view class="button-box">
+        <view class="button-box-ver">
+          <button bindtap="getVer" size="mini">获取验证码</button>
+        </view>
+      </view>
+      <!-- 验证码按钮 -->
+    </view>
+    <!-- 验证码box -->
+  </view>
+  <!-- page上部分 -->
+
+  <!-- page下部分 -->
+  <view class="down">
+    <view style="height:100%">
+      <button bindtap="enter">登陆</button>
+    </view>
+    <view class="privacy">
+      <text>隐私条款</text>
+    </view>
+  </view>
+  <!-- page下部分 -->
+  <!-- pagebody -->
+</view>

@@ -1,0 +1,36 @@
+.page_hd {
+  position: relative;
+  /* margin-top: 20px; */
+  background-color: #3296fa;
+  height: 44px;
+}
+
+.page_search {
+  display: flex;
+  transform: translate(5%, 30%);
+  background-color: #5babfb;
+  width: 90%;
+  height: 65%;
+  border-radius: 14px;
+  position: absolute;
+}
+
+.page_search-input {
+  width: 100%;
+}
+
+.page_search-input input {
+  text-align: center;
+  height: 100%;
+}
+
+.page_search_icon {
+  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 115px;
+}
+
+.newPage_search {
+  display: none;
+}

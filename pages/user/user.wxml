@@ -1,0 +1,3 @@
+<!--pages/user/user.wxml-->
+<!-- <navigator url="/page/login/login">登陆</navigator> -->
+<button bindtap="logins"></button>

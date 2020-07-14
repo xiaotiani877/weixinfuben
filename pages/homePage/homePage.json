@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "page-window": "../../components/page-window/page-window",
+    "abel-bar": "../../components/abel-bar/abel-bar",
+    "card": "../../components/card/card"
+  }
+}
