@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/homePage/homePage",
-    "pages/login/login",
     "pages/index/index",
+    "pages/detail/detail",
+    "pages/login/login",
     "pages/logs/logs",
     "pages/answer/answer",
     "pages/video/video",
@@ -48,7 +49,8 @@
     ]
   },
   "usingComponents": {
-    "abel-bar": "../../components/abel-bar/abel-bar",
-    "card": "../../components/card/card"
+    "page-window": "./components/page-window/page-window",
+    "abel-bar": "./components/abel-bar/abel-bar",
+    "card": "./components/card/card"
   }
 }

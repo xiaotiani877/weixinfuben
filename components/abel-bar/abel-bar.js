@@ -12,18 +12,18 @@ Component({
     },
     items: {
       type: Array,
-      value: [],
-      observer: function(newVal) {
-        if (newVal && newVal.length < 4) {
-          this.setData({
-            itemWidth: (750 / newVal.length) - 60
-          })
-        } else {
-          this.setData({
-            itemWidth: (750 / 4) - 60
-          })
-        }
-      }
+      value: []
+      // observer: function(newVal, oldVal, changedPath) {
+      //   if (newVal && newVal.length < 4) {
+      //     this.setData({
+      //       itemWidth: (750 / newVal.length) - 60
+      //     })
+      //   } else {
+      //     this.setData({
+      //       itemWidth: (750 / 4) - 60
+      //     })
+      //   }
+      // }
     },
     height: {
       type: String,
@@ -114,7 +114,7 @@ Component({
       var checkId = this.data.idItem.channels[index].id
       const date = new Date().getTime()
       $api.getArticles(checkId, date).then(res => {
-        console.log(res.data.data.results)
+        // console.log(res.data.data.results)
         //请求成功
         this.setData({
           itemList: res.data.data.results
@@ -154,7 +154,6 @@ Component({
           that.setData({
             idItem: res.data.data
           })
-          console.log(res.data.data)
           let item_list = [];
           for (var i = 0; i < res.data.data.channels.length; i++) {
             item_list.push(res.data.data.channels[i].name)

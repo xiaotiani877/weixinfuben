@@ -1,6 +1,6 @@
 <view wx:for="{{testValue}}" data-index="{{index}}" wx:key="index" class="card-box" style="{{boxStyle}}">
   <!-- 上部分 -->
-  <view>
+  <view bindtap="details" data-art_id="{{testValue[index].art_id}}" style="{{testValue[index].cover.type == 1?display:''}}">
     <!-- 内容 -->
     <view>
       <text>{{testValue[index].title}}</text>
@@ -8,24 +8,31 @@
     <!-- 内容 -->
 
     <!-- 图片 -->
-    <view></view>
+    <view wx:if="{{testValue[index].cover.type == 0}}">
+    </view>
+    <view wx:elif="{{testValue[index].cover.type == 1}}" style="display:flex;">
+      <cover-image wx:if="{{testValue[index].cover.images[0]}}" style="{{border}}" src="https://images.weserv.nl/?url={{testValue[index].cover.images[0]}}" binderror="errorFuntion" data-index="{{index}}"></cover-image>
+    </view>
+    <view wx:else="{{testValue[index].cover.type == 3}}" style="display:flex;">
+      <cover-image wx:if="{{testValue[index].cover.images[0]}}" style="{{border}}" src="https://images.weserv.nl/?url={{testValue[index].cover.images[0]}}" binderror="errorFuntion" data-index="{{index}}"></cover-image>
+      <cover-image wx:if="{{testValue[index].cover.images[1]}}" style="{{border}}" src="https://images.weserv.nl/?url={{testValue[index].cover.images[1]}}" binderror="errorFuntion" data-index="{{index}}"></cover-image>
+      <cover-image wx:if="{{testValue[index].cover.images[2]}}" style="{{border}}" src="https://images.weserv.nl/?url={{testValue[index].cover.images[2]}}" binderror="errorFuntion" data-index="{{index}}"></cover-image>
+    </view>
     <!-- 图片 -->
   </view>
   <!-- 上部分 -->
 
   <!-- 下部分 -->
   <view style="display: flex;justify-content: space-between;">
-    <view>
-      <view>
-        <text style="color: #e64b4c;font-size: 30rpx;">置顶</text>
-      </view>
-      <view>
-        <text>{{testValue[index].aut_name}}</text>
-      </view>
+    <view style="display:flex;justify-content: space-between;width: 90%;line-height: 25px;color:#c5c5c5;font-size: 25rpx;">
+      <text style="color: #e64b4c;font-size: 30rpx;">置顶</text>
+      <text>{{testValue[index].aut_name}}</text>
+      <text>{{testValue[index].comm_count}}条评论</text>
+      <text>{{date}}</text>
     </view>
 
     <view>
-      <mp-icon icon="lock" color="black" size="{{12}}"></mp-icon>
+      <mp-icon icon="close" color="black" size="{{12}}"></mp-icon>
     </view>
   </view>
   <!-- 下部分 -->

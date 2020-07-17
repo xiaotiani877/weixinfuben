@@ -1,0 +1,88 @@
+<!--pages/detail/detail.wxml-->
+<view style="margin:15px 15px 0 15px;">
+  <view>
+    <text style="font-size: 45rpx;font-weight: 600;">{{detailList.title}}</text>
+  </view>
+
+  <view class="user" style="display: flex;justify-content: space-between;">
+
+    <view style="height: 40px;width: 40px;">
+      <image style="height: 100%;width: 100%;border: 1px solid #9f9f9f;border-radius: 30px;" src="{{detailList.aut_photo}}"></image>
+    </view>
+
+    <view style="width: 83%;display: flex;justify-content: space-between;">
+      <view style="display: flex;flex-direction: column;justify-content: center;">
+        <text style="font-size: 32rpx;">{{detailList.aut_name}}</text>
+        <text style="font-size: 25rpx;color: #d7d7d7;">{{detailList.pubdate}}</text>
+      </view>
+
+      <view>
+        <text style="display: block;background-color: #3296fa;padding: 2px 16px;border-radius: 20px;font-size: 30rpx;margin: 22% auto;color: #ffffff;">+关注</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view>
+    <rich-text nodes="{{coment}}"></rich-text>
+  </view>
+
+  <view style="display: flex;flex-direction: column;margin: 25px 0;">
+    <text>猜你喜欢</text>
+    <view>
+      <text style="display: flex;width: 90%;justify-content: space-between;margin: 0 auto;" wx:if="detailList.recomments == []">你啥都不喜欢</text>
+      <text>{{detailList.recomments}}</text>
+    </view>
+  </view>
+
+  <view style="display: flex;justify-content: center;font-size: 35rpx;margin-bottom: 20px;">
+    <view style="margin-right:5px;border: 1px solid #999999;padding: 0 8px;border-radius: 15px;">
+      <mp-icon type="field" icon="sticker" color="black" size="{{18}}"></mp-icon>
+      <text>点赞</text>
+    </view>
+    <view style="margin-left:5px;border: 1px solid #999999;padding: 0 8px;border-radius: 15px;">
+      <mp-icon type="field" icon="delete" color="#ef8889" size="{{18}}"></mp-icon>
+      <text style="color:#ef8889;">不喜欢</text>
+    </view>
+  </view>
+
+  <view style="padding: 10px;border: 1px solid #c3c3c3;">
+    <image style="width: 100%;" src="{{detailList.aut_photo}}"></image>
+    <text style="font-size: 35rpx;font-weight: 300;">产品了吧图片图片</text>
+  </view>
+  <!-- 评论 -->
+  <view wx:for="comment">
+    <view>
+      <view>
+        <!-- <image></image> -->
+      </view>
+      <view>
+        <view></view>
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+  <!-- 评论 -->
+
+  <view style="display: flex;border-top: 1rpx solid #f0f0f0;margin-top: 10px;padding: 5px 10px 10px 10px;justify-content: space-between;">
+    <view style="border: 1px solid #c3c3c3;width: 60%;border-radius: 15px;">
+      <input wx:if="{{zindex == true}}" disabled="{{true}}" bindtap="popup" style="padding: 0 10px" placeholder-style="#c6c6c6" placeholder="写评论"></input>
+    </view>
+    <view>
+      <mp-icon type="outline" icon="comment" size="{{25}}"></mp-icon>
+    </view>
+    <view>
+      <mp-icon type="outline" icon="star" size="{{25}}"></mp-icon>
+    </view>
+    <view>
+      <mp-icon type="outline" icon="share" size="{{25}}"></mp-icon>
+    </view>
+  </view>
+
+</view>
+<view animation="{{animation}}" style="position: fixed;width: 100%;height:0px;bottom: 0;z-index: 1;">
+  <textarea bindinput="bind" bindblur="drop_down" placeholder="请输入评论" style="width: 87%;height:55%;border:1px solid #f3f3f3;border-radius: 20px 20px 0 0;bottom: {{bottom}};padding: 5% 20px;background-color: #f9f9f9;">
+  </textarea>
+  <button bindtap="send" style="width: 100%;height: 25%;background-color: #fffffe;border-radius: 40px;z-index: 999;">发送</button>
+</view>

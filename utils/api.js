@@ -36,7 +36,7 @@ function request(method, url, data, header) {
 }
 
 const API = {
-  getArticles: (channelId, timestamp) => request(GET, `/v1_1/articles?channel_id=${channelId}&timestamp=${timestamp}&with_top=1`,{}, token),
+  getArticles: (channelId, timestamp) => request(GET, `/v1_1/articles?channel_id=${channelId}&timestamp=${timestamp}&with_top=1`, {}, token),
 
   getVer: (mobile) => request(GET, `/v1_0/sms/codes/${mobile}`),
 
@@ -62,9 +62,15 @@ const API = {
       })
     })
     return promise
-  }
+  },
+  // 详情
+  details: (art_id) => request('GET', `/v1_0/articles/${art_id}`),
 
+  // 获取评论
+  getComment: (type, source, limit) => request('GET', `/v1_0/comments/type=${type}&source=${source}&limit=${limit}`),
 
+  // 添加评论
+  addComment: (target, content) => request('POST', `/v1_0/comments/target=${target}&content=${content}`,token)
 };
 module.exports = {
   API: API

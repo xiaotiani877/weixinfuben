@@ -24,7 +24,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.3",
+	"libVersion": "2.12.0",
 	"appid": "wx4266f7e70fbc5e70",
 	"projectname": "darkhorseapi",
 	"debugOptions": {
