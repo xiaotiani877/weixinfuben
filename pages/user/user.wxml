@@ -1,3 +1,136 @@
 <!--pages/user/user.wxml-->
 <!-- <navigator url="/page/login/login">登陆</navigator> -->
-<button bindtap="logins"></button>
+<view wx:if="{{!token}}">
+
+  <view style="height: 150px;position: relative;background-color: #409dfa;">
+    <view bindtap="logins" style="width: 80px;height: 80px;background-color: #ffffff;border-radius: 50%;position: absolute;transform: translate(-50%,-50%);top: 50%;left: 50%;">
+      <mp-icon style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);" color="#2589ff" type="outline" icon="cellphone" size="{{50}}"></mp-icon>
+    </view>
+  </view>
+
+  <view style="display: flex;padding: 12px 0;border-bottom: 5px solid #f5f7f9;">
+    <view style="display: flex;flex-direction: column;width: 50%;text-align: center;border-right: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ee7475" icon="star" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">收藏</text>
+    </view>
+    <view style="display: flex;flex-direction: column;width: 50%;text-align: center;border-left: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ffb659" icon="time" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">历史</text>
+    </view>
+  </view>
+
+  <view style="font-size: 35rpx;font-weight: 200;border-bottom: 4px solid #f5f7f9;">
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px;">
+      <text style="line-height: 40px;">消息通知</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px;">
+      <text style="line-height: 40px;">实名认证</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+  </view>
+
+  <view style="font-size: 35rpx;font-weight: 200;border-bottom: 4px solid #f5f7f9;">
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">用户反馈</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">小智同学</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">系统设置</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+  </view>
+</view>
+
+<view wx:if="{{token}}">
+
+  <view style="height: 150px;position: relative;background-color: #409dfa;">
+
+    <view style="display: flex;justify-content: space-between;padding: 10px 0 15px 15px;">
+      <view style="width: 60px;height: 60px;background-color: red;border-radius: 50%;">
+        <image style="width:100%;height:100%;"></image>
+      </view>
+
+      <view style="display:flex;width: 78%;justify-content: space-between;">
+
+        <view style="display: flex;flex-direction: column;">
+          <text style="font-size: 33rpx;color: #ffffff;margin: 4px 0;">一坨不可描述</text>
+          <button style="padding: 0 15px;font-size: 25rpx;color: #3e9cfa;border-radius: 30px;" size="mini">申请认证</button>
+        </view>
+
+        <view style="display: flex;height: 70%;background-color: #3780c8;padding: 0 10px;border-radius: 25px 0 0 25px;margin: auto 0;">
+          <mp-icon style="line-height: 42px;height: 100%;" type="outline" icon="note" color="#ffffff" size="25"></mp-icon>
+          <view style="display: flex;flex-direction: column;color: #ffffff;font-size: 25rpx;padding: 6px 0;">
+            <text>今日阅读</text>
+            <text>分钟</text>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+
+    <view style="display: flex;justify-content: space-between;padding: 10px 40px;color: #ffffff;">
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>8</text>
+        <text style="font-size: 30rpx;">动态</text>
+      </view>
+
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>88</text>
+        <text style="font-size: 30rpx;">关注</text>
+      </view>
+
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>888</text>
+        <text style="font-size: 30rpx;">粉丝</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view style="display: flex;padding: 12px 0;border-bottom: 5px solid #f5f7f9;">
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-right: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ee7475" icon="star" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">收藏</text>
+    </view>
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-left: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ffb659" icon="time" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">历史</text>
+    </view>
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-left: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#6e93ff" icon="pencil" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">作品</text>
+    </view>
+  </view>
+
+  <view style="font-size: 35rpx;font-weight: 200;border-bottom: 4px solid #f5f7f9;">
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px;">
+      <text style="line-height: 40px;">消息通知</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px;">
+      <text style="line-height: 40px;">实名认证</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+  </view>
+
+  <view style="font-size: 35rpx;font-weight: 200;border-bottom: 4px solid #f5f7f9;">
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">用户反馈</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">小智同学</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+    <view style="display: flex;justify-content: space-between;padding: 5px 25px; ">
+      <text style="line-height: 40px; ">系统设置</text>
+      <mp-icon type="field" color="#bababa" icon="arrow" size="{{10}}"></mp-icon>
+    </view>
+  </view>
+</view>

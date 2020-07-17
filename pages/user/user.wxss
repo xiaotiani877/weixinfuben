@@ -1,1 +1,5 @@
 /* pages/user/user.wxss */
+.abc {
+  position: absolute;
+  transform: translate()
+}
