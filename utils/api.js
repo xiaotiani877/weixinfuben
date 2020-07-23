@@ -6,23 +6,17 @@ const DELETE = 'DELETE';
 
 const baseURL = 'http://ttapi.research.itcast.cn/app';
 
-const headers = {
-  'Content-Type': 'application/json',
-};
-
-const token = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Bearer ' + 　wx.getStorageSync('token')
-};
-
-function request(method, url, data, header) {
+function request(method, url, data) {
   // console.log(header)
   return new Promise(function(resolve, reject) {
     wx.request({
       url: baseURL + url,
       method: method,
       data: method === POST ? JSON.stringify(data) : data,
-      header: header,
+      header: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer ' + wx.getStorageSync('token')
+      },
       success(res) {
         //请求成功
         resolve(res);
@@ -36,9 +30,11 @@ function request(method, url, data, header) {
 }
 
 const API = {
-  getArticles: (channelId, timestamp) => request(GET, `/v1_1/articles?channel_id=${channelId}&timestamp=${timestamp}&with_top=1`, {}, token),
+  getUsers: () => request('GET', `/v1_0/user`),
 
-  getVer: (mobile) => request(GET, `/v1_0/sms/codes/${mobile}`),
+  getArticles: (channelId, timestamp) => request('GET', `/v1_1/articles?channel_id=${channelId}&timestamp=${timestamp}&with_top=1`, {}),
+
+  getVer: (mobile) => request('GET', `/v1_0/sms/codes/${mobile}`),
 
   enter: (mobile, code) => {
     var promise = new Promise((resolve, reject) => {
@@ -67,10 +63,19 @@ const API = {
   details: (art_id) => request('GET', `/v1_0/articles/${art_id}`),
 
   // 获取评论
-  getComment: (type, source, limit) => request('GET', `/v1_0/comments/type=${type}&source=${source}&limit=${limit}`),
+  getComment: (type, source) => request('GET', `/v1_0/comments?type=${type}&source=${source}`),
 
   // 添加评论
-  addComment: (target, content) => request('POST', `/v1_0/comments/target=${target}&content=${content}`,token)
+  addComment: (target, content) => request('POST', `/v1_0/comments`, {
+    target,
+    content
+  }),
+
+  getAssociation: (q) => request('GET', `/v1_0/suggestion?q=${q}`),
+
+  getAssociations: (q) => request('GET', `/v1_0/search?per_page=10&q=${q}`),
+
+  getSomeoneDetail: (target) => request('GET', `/v1_0/users/${target}`)
 };
 module.exports = {
   API: API

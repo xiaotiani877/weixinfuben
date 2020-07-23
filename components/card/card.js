@@ -14,20 +14,27 @@ Component({
   },
   data: {
     clickIndex: '',
-    display: 'display:flex;',
+    display: 'display:flex;justify-content: space-between;',
     boxStyle: 'border-bottom: 1px solid #e5e5e5;padding: 10px;',
     name: '',
-    border: 'width:100px;height:100px;'
+    border: 'width:100px;height:100px;',
+    indexs: '1'
   },
   onLoad: function(options) {},
   lifetimes: {
-    created() {
+    created(e) {
       let that = this
-      $api.getArticles(0, 1594363544516, 1).then(res => {
-        //请求成功
-        that.setData({
-          testValue: res.data.data.results
-        })
+      const date = new Date().getTime()
+      $api.getArticles(0, date).then(res => {
+        if (res.statusCode == 401) {
+          wx.removeStorageSync('token')
+        } else {
+          //请求成功
+          that.setData({
+            testValue: res.data.data.results
+          })
+          getApp().globalData.startCard = res.data.data.results
+        }
       }).catch(err => {
         //请求失败
       })
@@ -35,20 +42,6 @@ Component({
   },
   methods: {
     errorFuntion: function(e) {},
-    // resolvingDate: function(date) {
-    //   //date是传入的时间
-    //   let d = new Date(date);
-
-    //   let month = (d.getMonth() + 1) < 10 ? '0' + (d.getMonth() + 1) : (d.getMonth() + 1);
-    //   let day = d.getDate() < 10 ? '0' + d.getDate() : d.getDate();
-    //   let hours = d.getHours() < 10 ? '0' + d.getHours() : d.getHours();
-    //   let min = d.getMinutes() < 10 ? '0' + d.getMinutes() : d.getMinutes();
-    //   let sec = d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
-
-    //   let times = d.getFullYear() + '-' + month + '-' + day + ' ' + hours + ':' + min + ':' + sec;
-
-    //   return times
-    // }
     details: function(e) {
       getApp().globalData.detail = e.currentTarget.dataset.art_id
       wx.navigateTo({
@@ -59,5 +52,10 @@ Component({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {},
+  onReady: {},
+  pageLifetimes: {
+    show: function() {
+      console.log(1)
+    }
+  }
 })

@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/someone/someone.js
 const $api = require('../../utils/api.js').API;
 var app = getApp()
 Page({
@@ -7,28 +7,28 @@ Page({
    * 页面的初始数据
    */
   data: {
-    token: '',
-    userList: []
-  },
-  logins: function() {
-    wx.redirectTo({
-      url: '../login/login'
-    })
+    someoneList: [],
+    ifOpen: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    const token = wx.getStorageSync('token')
-    if (token) {
-      $api.getUsers().then(res => {
-        getApp().globalData.user_id = res.data.data.id
+    $api.getSomeoneDetail(app.globalData.someoneId).then(res => {
+      if (res.statusCode == 400) {
         this.setData({
-          userList: res.data.data
+          ifOpen: 'true'
         })
-      })
-    }
+        return
+      } else {
+        this.setData({
+          someoneList: res.data.data,
+          ifOpen: 'false'
+        })
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -42,9 +42,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.setData({
-      token: wx.getStorageSync('token')
-    })
+
   },
 
   /**

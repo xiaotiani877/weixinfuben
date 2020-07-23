@@ -5,9 +5,9 @@
     "pages/detail/detail",
     "pages/login/login",
     "pages/logs/logs",
-    "pages/answer/answer",
     "pages/video/video",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/someone/someone"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,12 +27,6 @@
         "text": "首页",
         "iconPath": "images/icons/homePage.png",
         "selectedIconPath": "images/icons/homePage1.png"
-      },
-      {
-        "pagePath": "pages/answer/answer",
-        "text": "问答",
-        "iconPath": "images/icons/answer.png",
-        "selectedIconPath": "images/icons/answer1.png"
       },
       {
         "pagePath": "pages/video/video",

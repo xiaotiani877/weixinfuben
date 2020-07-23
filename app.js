@@ -35,8 +35,10 @@ App({
   },
   globalData: {
     userInfo: null,
-    list: [], //存放tabBar的数据
     item: [],
-    detail: ''
+    detail: '',
+    user_id: '',
+    someoneId: '',
+    startCard:''
   }
 })

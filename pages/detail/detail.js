@@ -12,7 +12,8 @@ Page({
     bottom: '1',
     block: 'block',
     zindex: true,
-    reason_input: ''
+    reason_input: '',
+    comment_list: [],
   },
   popup: function() {
     this.animation.height(160).step()
@@ -34,19 +35,42 @@ Page({
     })
   },
   send: function() {
+    let that = this
     this.animation.height(0).step()
     this.setData({
       animation: this.animation.export(),
       block: 'block',
       zindex: true
     })
-    $api.addComment(app.globalData.detail, this.data.reason_input).then(res => {
-      console.log(res)
-    })
+    if (this.data.reason_input == '') {
+      return
+    } else {
+      $api.addComment(app.globalData.detail, this.data.reason_input).then(res => {
+        if (res.statusCode == 201) {
+          that.setData({
+            reason_input: ''
+          })
+          that.gets()
+        }
+      })
+    }
   },
   bind: function(e) {
     this.setData({
       reason_input: e.detail.value
+    })
+  },
+  gets: function() {
+    $api.getComment('a', app.globalData.detail).then(res => {
+      this.setData({
+        comment_list: res.data.data.results
+      })
+    })
+  },
+  getUserDetail: function(e) {
+    getApp().globalData.someoneId = e.currentTarget.dataset.someoneid
+    wx.navigateTo({
+      url: '../someone/someone',
     })
   },
   /**
@@ -54,16 +78,13 @@ Page({
    */
   onLoad: function() {
     $api.details(app.globalData.detail).then(res => {
-      console.log(res)
       this.setData({
         detailList: res.data.data,
         coment: res.data.data.content.replace(/\<img/gi, '<img style="max-width:290px;height:auto"')
       })
     })
     // 评论
-    $api.getComment('a', app.globalData.detail, '4').then(res => {
-      // console.log(res)
-    })
+    this.gets()
   },
 
   /**

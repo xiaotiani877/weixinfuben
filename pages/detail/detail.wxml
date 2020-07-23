@@ -51,18 +51,30 @@
     <text style="font-size: 35rpx;font-weight: 300;">产品了吧图片图片</text>
   </view>
   <!-- 评论 -->
-  <view wx:for="comment">
-    <view>
-      <view>
-        <!-- <image></image> -->
+  <view wx:for="{{comment_list}}" wx:key="index" style="display: flex;margin-top: 15px;">
+    <view bindtap="getUserDetail" data-someoneId="{{comment_list[index].aut_id}}" style="height: 40px;width: 40px;">
+      <image style="height: 100%;width: 100%;border: 1px solid #9f9f9f;border-radius: 30px;" src="{{comment_list[index].aut_photo}}"></image>
+    </view>
+
+    <view style="width: 80%;padding: 5px;">
+      <view style="display: flex;justify-content: space-between;width: 100%;">
+        <text style="color: #0072ca;">{{comment_list[index].aut_name}}</text>
+        <view>
+          <mp-icon icon="like" size="25"></mp-icon>
+          <text style="display: inline-block;margin-left: 2px;">{{comment_list[index].like_count}}</text>
+        </view>
       </view>
       <view>
-        <view></view>
-        <view></view>
-        <view></view>
+        <text style="font-size: 45rpx;">{{comment_list[index].content}}</text>
+      </view>
+      <view>
+        <text style="font-size: 25rpx;">{{comment_list[index].pubdate}}</text>
+        <text style="display: inline-block;font-size: 32rpx;margin-left: 10px;">{{comment_list[index].reply_count}}回复</text>
       </view>
     </view>
+
   </view>
+
   <!-- 评论 -->
 
   <view style="display: flex;border-top: 1rpx solid #f0f0f0;margin-top: 10px;padding: 5px 10px 10px 10px;justify-content: space-between;">
@@ -82,7 +94,7 @@
 
 </view>
 <view animation="{{animation}}" style="position: fixed;width: 100%;height:0px;bottom: 0;z-index: 1;">
-  <textarea bindinput="bind" bindblur="drop_down" placeholder="请输入评论" style="width: 87%;height:55%;border:1px solid #f3f3f3;border-radius: 20px 20px 0 0;bottom: {{bottom}};padding: 5% 20px;background-color: #f9f9f9;">
+  <textarea value="{{reason_input}}" bindinput="bind" bindblur="drop_down" placeholder="请输入评论" style="width: 87%;height:55%;border:1px solid #f3f3f3;border-radius: 20px 20px 0 0;bottom: {{bottom}};padding: 5% 20px;background-color: #f9f9f9;">
   </textarea>
   <button bindtap="send" style="width: 100%;height: 25%;background-color: #fffffe;border-radius: 40px;z-index: 999;">发送</button>
 </view>

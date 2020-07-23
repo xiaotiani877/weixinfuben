@@ -1,12 +1,28 @@
 <!--pages/homePage/homePage.wxml-->
 <!-- 页顶 -->
-<page-window></page-window>
+<view style="position: relative;background-color: #3296fa;height: 50px;">
+  <input value="{{valueInput}}" animation="{{animation}}" focus="{{focuss}}" bindinput="searchInput" bindfocus="searchFocus" style="height: 60%;width: 60%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);border-radius: 50px;background-color: #c4c6ca;padding-left: 35px;"></input>
+
+  <view bindtap="searchFocus" animation="{{animations}}" style="display: flex;width: 20%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">
+    <view>
+      <mp-icon type="outline" icon="search" size="20"></mp-icon>
+    </view>
+    <text>搜索</text>
+  </view>
+
+  <button wx:if="{{cancel_display=='block'}}" bindtap="cancel" style="position: absolute;top: 50%;right: 0;transform: translate(-20%,-50%);color: #ffffff;font-weight: 200;border: 0;" plain="{{true}}" size="mini">取消</button>
+</view>
 <!-- 页顶 -->
 
 <!-- Tab标签栏 -->
-<abel-bar bind:onItemTap="onItemTap" class="items_list" items="{{items_list}}"></abel-bar>
+<abel-bar id="abel_bar" wx:if="{{abel_bar_display == 'block'}}" bind:onItemTaps="onItemTaps" bind:onItemTap="onItemTap" class="items_list" mSelecteds="{{mSelecteds}}" items="{{items_list}}"></abel-bar>
 <!-- Tab标签栏 -->
 
 <!-- 数据列表 -->
-<card testValue="{{testValue}}"></card>
+<card style="display:{{display}}" testValue="{{testValue}}"></card>
 <!-- 数据列表 -->
+
+<view wx:if="{{display=='none'}}" catchtouchstart="search_touch" data-association="{{search_association[index]}}" wx:if="{{display=='none'}}" wx:for="{{search_association}}" wx:key="index" style="width:82%;margin:0 auto;padding: 8px 0;border-bottom: 1px solid #c4c6ca;">
+  <mp-icon icon="search" size="20"></mp-icon>
+  <text>{{search_association[index]}}</text>
+</view>

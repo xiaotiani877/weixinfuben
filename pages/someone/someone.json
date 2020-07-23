@@ -1,7 +1,5 @@
 {
   "usingComponents": {
-    "abel-bar": "../../components/abel-bar/abel-bar",
-    "card": "../../components/card/card",
     "mp-icon": "../../miniprogram_npm/weui-miniprogram/icon/icon"
   }
 }

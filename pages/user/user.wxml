@@ -51,14 +51,14 @@
   <view style="height: 150px;position: relative;background-color: #409dfa;">
 
     <view style="display: flex;justify-content: space-between;padding: 10px 0 15px 15px;">
-      <view style="width: 60px;height: 60px;background-color: red;border-radius: 50%;">
-        <image style="width:100%;height:100%;"></image>
+      <view style="width: 60px;height: 60px;">
+        <image src="{{userList.photo}}" style="width:100%;height:100%;border-radius: 50%;"></image>
       </view>
 
       <view style="display:flex;width: 78%;justify-content: space-between;">
 
         <view style="display: flex;flex-direction: column;">
-          <text style="font-size: 33rpx;color: #ffffff;margin: 4px 0;">一坨不可描述</text>
+          <text style="font-size: 33rpx;color: #ffffff;margin: 4px 0;">{{userList.name}}</text>
           <button style="padding: 0 15px;font-size: 25rpx;color: #3e9cfa;border-radius: 30px;" size="mini">申请认证</button>
         </view>
 
@@ -76,17 +76,17 @@
 
     <view style="display: flex;justify-content: space-between;padding: 10px 40px;color: #ffffff;">
       <view style="display: flex;flex-direction: column;text-align: center;">
-        <text>8</text>
+        <text>{{userList.art_count}}</text>
         <text style="font-size: 30rpx;">动态</text>
       </view>
 
       <view style="display: flex;flex-direction: column;text-align: center;">
-        <text>88</text>
+        <text>{{userList.follow_count}}</text>
         <text style="font-size: 30rpx;">关注</text>
       </view>
 
       <view style="display: flex;flex-direction: column;text-align: center;">
-        <text>888</text>
+        <text>{{userList.fans_count}}</text>
         <text style="font-size: 30rpx;">粉丝</text>
       </view>
     </view>

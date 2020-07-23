@@ -15,7 +15,7 @@ Page({
       // 请求成功
       
       wx.switchTab({
-        url: '../homePage/homePage',
+        url: '../user/user',
       })
       this.setData({
         moblie: '',
@@ -55,7 +55,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    
   },
 
   /**

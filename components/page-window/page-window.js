@@ -7,15 +7,6 @@ Component({
       this.setData({
         verify: e.detail.value
       });
-      if (this.data.verify.length == 0) {
-        this.setData({
-          display: "block"
-        });
-      } else {
-        this.setData({
-          display: "none"
-        });
-      }
     }
   }
 })

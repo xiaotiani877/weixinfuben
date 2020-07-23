@@ -1,0 +1,67 @@
+<!--pages/someone/someone.wxml-->
+
+<view wx:if="{{ifOpen=='false'}}">
+
+  <view style="height: 150px;position: relative;background-color: #409dfa;">
+
+    <view style="display: flex;justify-content: space-between;padding: 10px 0 15px 30px;">
+      <view style="width: 60px;height: 60px;">
+        <image src="{{someoneList.photo}}" style="width:100%;height:100%;border-radius: 50%;"></image>
+      </view>
+
+      <view style="display:flex;width: 78%;justify-content: space-between;">
+
+        <view>
+          <text style="font-size: 33rpx;color: #ffffff;margin: 0 15px;">{{someoneList.name}}</text>
+        </view>
+
+        <view style="display: flex;height: 70%;background-color: #3780c8;padding: 0 10px;border-radius: 25px 0 0 25px;margin: auto 0;">
+          <mp-icon style="line-height: 42px;height: 100%;" type="outline" icon="note" color="#ffffff" size="25"></mp-icon>
+          <view style="display: flex;flex-direction: column;color: #ffffff;font-size: 25rpx;padding: 6px 0;">
+            <text>今日阅读</text>
+            <text>分钟</text>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+
+    <view style="display: flex;justify-content: space-between;padding: 10px 40px;color: #ffffff;">
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>{{someoneList.art_count}}</text>
+        <text style="font-size: 30rpx;">动态</text>
+      </view>
+
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>{{someoneList.follow_count}}</text>
+        <text style="font-size: 30rpx;">关注</text>
+      </view>
+
+      <view style="display: flex;flex-direction: column;text-align: center;">
+        <text>{{someoneList.fans_count}}</text>
+        <text style="font-size: 30rpx;">粉丝</text>
+      </view>
+    </view>
+
+  </view>
+
+  <view style="display: flex;padding: 12px 0;border-bottom: 5px solid #f5f7f9;">
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-right: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ee7475" icon="star" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">收藏</text>
+    </view>
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-left: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#ffb659" icon="time" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">历史</text>
+    </view>
+    <view style="display: flex;flex-direction: column;width: 33%;text-align: center;border-left: 1px solid #f8f8f8;">
+      <mp-icon type="outline" color="#6e93ff" icon="pencil" size="{{30}}"></mp-icon>
+      <text style="font-weight: 200;">作品</text>
+    </view>
+  </view>
+</view>
+
+<view>
+  未开放
+</view>

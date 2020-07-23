@@ -1,6 +1,5 @@
-.page_hd {
+/* .page_hd {
   position: relative;
-  /* margin-top: 20px; */
   background-color: #3296fa;
   height: 44px;
 }
@@ -33,4 +32,4 @@
 
 .newPage_search {
   display: none;
-}
+} */
